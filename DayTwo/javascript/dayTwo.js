@@ -31,7 +31,7 @@ function startWave(event, position){
 	
 	setTimeout(function(){
 		$('#dot' + selectedDotId).on('click', function(event){
-			$(this).off('click');
+			$(this).off('click'); 
 			startWave(event, position);
 		});
 	}, 800);
