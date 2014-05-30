@@ -21,25 +21,50 @@
 				background: black;
 			}
 			
-			#authorSelect{
+			#authors-container{
 				margin: 85px 0 0 0;
 			}
 			
 			.author-card{
 				background: black;
-				height: 50px;
-				margin: 50px;
+				height: 300px;
+				margin: 20px;
+				padding: 50px;
 			}
+			
+			.image-holder{
+				margin-left:auto;
+				margin-right:auto;
+				width:70%;
+			}
+			
+			.image-holder img{
+				
+				width: 100px;
+				margin: 30px;
+			}
+			
+			#storyBook{
+				margin: 85px 0 0 0;
+				width: 100%;
+			};
+			
+			div#divideSelector, div#speedSelector {
+				margin-bottom: 20px;
+			}
+			.highlight{
+				color: red;
+			}				
 		</style>
 	</head>
 	
 	<body>
 		<div class="header"><h1 class="text-center">Select an author to read one of their stories.</h1></div>
 		<div class="container">
-			<div class="row"></div>
-			
-			<div class="row">
-				<div id="authorSelect"></div>
+			<div class="main-content">
+				<div class="row">
+					<div id="authors-container"></div>
+				</div>
 			</div>
 		</div>
 	</body>
