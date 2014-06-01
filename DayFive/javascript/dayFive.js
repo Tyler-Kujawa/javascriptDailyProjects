@@ -9,9 +9,10 @@ function beginGame(){
 };
 
 /*
-	Player 1 is always X 
-	Player 2 is O
+//	Player 1 is always X 
+//	Player 2 is O
 */
+
 function Game(){
 	this.currentPlayersMove = 0,
 	this.winner = null;
