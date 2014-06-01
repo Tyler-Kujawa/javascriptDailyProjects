@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<script src="javascript/jquery-2.1.1.js"></script>
+		<script type="text/JavaScript" src="javascript/dayFive.js"></script>
+		<link rel="stylesheet" type="type/css" href="css/bootstrap/css/bootstrap.css"></link>
+		<style>
+			body, html{
+				background: #2F3131;
+				margin: 0;
+				padding: 0;
+			}
+			#banner{
+				postion: absolute;
+				top: 0;
+				background: #4D94A6;
+				color: #EDF4F6;
+			}
+			
+			#board{
+				padding-top: 25px;
+				min-height: 80%;
+				min-width: 80%;
+				float: none;
+				margin: 0 auto;
+			}
+			
+			.square{
+				float: left;
+				height: 80px;
+				width: 80px;
+				border: 1px solid #EDF4F6;
+				padding 5px;
+				margin: 0px;
+			}
+			
+			#scoreboard{
+				width: 100%;
+				min-height: ;
+			}
+			
+			#scoreboard-card{
+				background: #EDF4F6;
+				color: #4D94A6;
+				opacity: 0.8;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="row" id="banner">
+				<div class="col-md-12">
+					<h1 class="text-center">Tic-Tac-Toe</h1>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-3 offset-col-md-4">
+					 <div id="board"></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4" id="scoreboard">
+					<div id="scoreboard-card">
+						<h3 class="text-center">Scoreboard</h3>
+						<hr>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
