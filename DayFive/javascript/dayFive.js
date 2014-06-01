@@ -3,8 +3,8 @@ $(document).ready(function(){
 });
 
 function beginGame(){
-	var game = new Game();
-	var board = new Board(3, 3, game);
+	var currentGame = new Game();
+	var board = new Board(3, 3, currentGame);
 	board.draw();
 };
 
@@ -16,51 +16,38 @@ function beginGame(){
 function Game(){
 	this.currentPlayersMove = 0,
 	this.winner = null;
-
 	
-	var getCurrentPlayersMove = function(){
-		return this.currentPlayersMove;
-	}
+	this.getCurrentPlayerMove = function(){ return this.currentPlayersMove; }
 	
-	var currentPlayersMoveAsString = function(){
-		switch(this.currentPlayersMove){
-		case 0:
+	this.getCurrentPlayerMoveAsString = function(){
+		if(this.currentPlayersMove === 0){
 			return "Player 1";
-			break;
-		case 1:
-			return "Player 2";
-			break;
-		default:
+		}else if(this.currentPlayersMove === 1){
+			return "Player 1";
+		}else{
+			console.log('Error determing which players turn it is.');
 			return null;
 		}
 	}
 	
-	var setCurrentPlayersMove = function(currentPlayer){
-		this.currentPlayersMove = currentPlayer;
-	};
-	
-	var advanceMove = function(){
-		if(this.currentPlayersMove === 1){
-			this.currentPlayersMove = this.currentPlayersMove - 1;
-		}else if(this.currentPlayersMove === 0){
-			this.currentPlayersMove = this.currentPlayersMove + 1;
+	this.advanceTurn = function(){
+		if(this.currentPlayersMove === 0){
+			this.currentPlayersMove += 1;
+		}else if(this.currentPlayersMove === 1){
+			this.currentPlayersMove -= 1;
 		}else{
-			console.log("Error advancing to next move...");
+			console.log('There was a problem advancing the game.');
+			return null;
 		}
 	}
-
-	return {
-		currentPlayersMoveAsString : currentPlayersMoveAsString,
-		advanceMove : advanceMove
-	}
 }
+	
 
-function Board(rows, cols, game){
+function Board(rows, cols, currentGame){
 	this.rows = rows;
 	this.cols = cols;
-	this.game = game;
 	
-	var draw = function(){
+	this.draw = function(){
 		var boardSize = rows * cols;
 		var squaresToAdd = "";
 		for(var i = 0; i < boardSize; i++){
@@ -70,14 +57,10 @@ function Board(rows, cols, game){
 		
 		for(var x = 0; x < boardSize; x++){
 			$('#square' + x).on('click', function(){
-				console.log(game.currentPlayersMoveAsString() + " clicked " + this.id );
-				game.advanceMove();
+				console.log(currentGame.getCurrentPlayerMoveAsString());
+				currentGame.advanceTurn();
 			});
 		}
-	}
-	
-	return{
-		draw : draw
 	}
 	
 }
