@@ -23,7 +23,7 @@ function Game(){
 		if(this.currentPlayersMove === 0){
 			return "Player 1";
 		}else if(this.currentPlayersMove === 1){
-			return "Player 1";
+			return "Player 2";
 		}else{
 			console.log('Error determing which players turn it is.');
 			return null;
@@ -37,7 +37,6 @@ function Game(){
 			this.currentPlayersMove -= 1;
 		}else{
 			console.log('There was a problem advancing the game.');
-			return null;
 		}
 	}
 }
